@@ -10,7 +10,8 @@ import {SocialSharing} from '@awesome-cordova-plugins/social-sharing/ngx';
     styleUrls: ["tab1.page.scss"],
 })
 export class Tab1Page {
-    title = "Grocery List";
+    title = "Northern Quest";
+    date: Date = new Date();
 
     constructor(
         public toastController: ToastController,
@@ -22,13 +23,13 @@ export class Tab1Page {
     }
 
     loadItem() {
-        return this.dataService.getItems();
+        return this.dataService.getEntry();
     }
 
     async editItem(item, index) {
-        console.log("Editing Item - ", item, index);
+        console.log("Editing Entry - ", item, index);
         const toast = await this.toastController.create({
-            message: "Editing Item - " + index + "...",
+            message: "Editing Entry - " + index + "...",
             duration: 2000,
         });
         await toast.present();
@@ -37,9 +38,9 @@ export class Tab1Page {
     }
 
     async shareItem(item, index) {
-        console.log("Sharing Item - ", item, index);
+        console.log("Sharing Entry - ", item, index);
         const toast = await this.toastController.create({
-            message: "Sharing Item - " + index + "...",
+            message: "Sharing Entry - " + index + "...",
             duration: 2000,
         });
         await toast.present();
@@ -58,18 +59,18 @@ export class Tab1Page {
     }
 
     async removeItem(item, index) {
-        console.log("Removing Item - ", item, index);
+        console.log("Removing Entry - ", item, index);
         const toast = await this.toastController.create({
-            message: "Removing Item - " + index + "...",
+            message: "Removing Entry - " + index + "...",
             duration: 2000,
         });
         await toast.present();
 
-        this.dataService.removeItem(index);
+        this.dataService.removeEntry(index);
     }
 
     addItem() {
-        console.log("Adding item");
+        console.log("Adding Entry");
         this.InputDialogService.showPrompt();
     }
 }
