@@ -1,6 +1,6 @@
 import {Component} from "@angular/core";
 import {AlertController, ToastController} from "@ionic/angular";
-import {GroceriesServiceService} from "../groceries-service.service";
+import {WikiServiceService} from "../wiki-service.service";
 import {InputDialogServiceService} from "../input-dialog-service.service";
 import {SocialSharing} from '@awesome-cordova-plugins/social-sharing/ngx';
 
@@ -16,7 +16,7 @@ export class Tab1Page {
     constructor(
         public toastController: ToastController,
         public alertController: AlertController,
-        public dataService: GroceriesServiceService,
+        public dataService: WikiServiceService,
         public InputDialogService: InputDialogServiceService,
         public socialSharing: SocialSharing
     ) {
