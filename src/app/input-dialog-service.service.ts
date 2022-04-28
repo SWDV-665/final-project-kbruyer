@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { AlertController } from "@ionic/angular";
-import { GroceriesServiceService } from "./groceries-service.service";
+import { WikiServiceService } from "./wiki-service.service";
 
 @Injectable({
   providedIn: "root",
@@ -8,26 +8,26 @@ import { GroceriesServiceService } from "./groceries-service.service";
 export class InputDialogServiceService {
   constructor(
     public alertController: AlertController,
-    public dataService: GroceriesServiceService
+    public dataService: WikiServiceService
   ) {}
 
-  async showPrompt(item?, index?) {
+  async showPrompt(entry?, index?) {
     const alert = await this.alertController.create({
       cssClass: "my-custom-class",
-      header: item ? "Edit Item" : "Add Item",
-      message: item ? "Please edit item..." : "Please enter item...",
+      header: entry ? "Edit Entry" : "Add Entry",
+      message: entry ? "Please edit entry..." : "Please enter information...",
       inputs: [
         {
           name: "name",
           type: "text",
           placeholder: "Name",
-          value: item ? item.name : null,
+          value: entry ? entry.name : null,
         },
         {
-          name: "quantity",
-          type: "text",
-          placeholder: "Quantity",
-          value: item ? item.quality : null,
+          name: "description",
+          type: "textarea",
+          placeholder: "Description",
+          value: entry ? entry.description : null,
         },
       ],
       buttons: [
@@ -35,18 +35,18 @@ export class InputDialogServiceService {
           text: "Cancel",
           role: "cancel",
           cssClass: "secondary",
-          handler: (item) => {
+          handler: (entry) => {
             console.log("Confirm Cancel");
           },
         },
         {
           text: "Save",
-          handler: (item) => {
-            console.log("Confirm Save", item);
+          handler: (entry) => {
+            console.log("Confirm Save", entry);
             if (index !== undefined) {
-              this.dataService.editItem(item, index);
+              this.dataService.editEntry(entry, index);
             } else {
-              this.dataService.addItem(item);
+              this.dataService.addEntry(entry);
             }
           },
         },

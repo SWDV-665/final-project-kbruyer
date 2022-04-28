@@ -1,11 +1,19 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Contacts
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>{{title}}</ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content [fullscreen]="true">
+    <ion-card>
+        <img src="../../assets/hoteloutside.jpg" alt="Northern Quest Resort & Casino" width="300" height="200"/>
+    </ion-card>
 
+    <ion-card>
+        <ion-card-header>
+            <ion-card-title>Casino Floor Map</ion-card-title>
+            <br>
+            <img src="../../assets/floor map.jpg" alt="Northern Quest Resort & Casino" width="300" height="200"/>
+        </ion-card-header>
+    </ion-card>
 </ion-content>

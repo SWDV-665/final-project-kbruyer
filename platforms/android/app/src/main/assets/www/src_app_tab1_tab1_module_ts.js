@@ -3,7 +3,7 @@
 
 /***/ 9421:
 /*!**********************************************!*\
-  !*** ./src/app/groceries-service.service.ts ***!
+  !*** ./src/app/wiki-service.service.ts ***!
   \**********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -20,16 +20,16 @@ let GroceriesServiceService = class GroceriesServiceService {
         this.items = [];
     }
     getItems() {
-        return this.items;
+        return this.entries;
     }
     removeItem(index) {
-        this.items.splice(index, 1);
+        this.entries.splice(index, 1);
     }
     addItem(item) {
-        this.items.push(item);
+        this.entries.push(item);
     }
     editItem(item, index) {
-        this.items[index] = item;
+        this.entries[index] = item;
     }
 };
 GroceriesServiceService.ctorParameters = () => [];
@@ -100,10 +100,10 @@ let InputDialogServiceService = class InputDialogServiceService {
                         handler: (item) => {
                             console.log("Confirm Save", item);
                             if (index !== undefined) {
-                                this.dataService.editItem(item, index);
+                                this.dataService.editEntry(item, index);
                             }
                             else {
-                                this.dataService.addItem(item);
+                                this.dataService.addEntry(item);
                             }
                         },
                     },
@@ -285,7 +285,7 @@ let Tab1Page = class Tab1Page {
                 duration: 2000,
             });
             yield toast.present();
-            this.dataService.removeItem(index);
+            this.dataService.removeEntry(index);
         });
     }
     addItem() {
