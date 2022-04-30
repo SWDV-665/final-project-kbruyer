@@ -1,0 +1,25 @@
+.buttonPrimary {
+  padding: 15px;
+  border-radius: 2px;
+  background-color: white;
+  color: black;
+  border: 2px solid #008CBA;
+}
+
+.buttonPrimary:hover {
+  background-color: #008CBA;
+  color: white;
+}
+
+.buttonLight {
+  padding: 15px;
+  border-radius: 2px;
+  background-color: white;
+  color: black;
+  border: 2px solid #999999;
+}
+
+.buttonLight:hover {
+  background-color: #999999;
+  color: white;
+}
